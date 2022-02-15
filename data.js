@@ -47,4 +47,46 @@ let songs = [
         artist: 'JSOL & Hoàng Duyên',
         cover: './Assets/Images/sai-gon-hom-nay-mua.jpg'
     },
+    {
+        name: 'Gimme Gimme Gimme Remix',
+        path: './Assets/Musics/Gimme Gimme Gimme - Syzz.mp3',
+        artist: 'Syzz',
+        cover: './Assets/Images/cover-1.jpg'
+    },
+    {
+        name: 'Smokin Out The Window',
+        path: './Assets/Musics/Smokin Out The Window.mp3',
+        artist: 'UnKnow',
+        cover: './Assets/Images/cover-1.jpg'
+    },
+    {
+        name: 'Walk Thru Fire',
+        path: './Assets/Musics/Walk Thru Fire.mp3',
+        artist: 'UnKnow',
+        cover: './Assets/Images/cover-1.jpg'
+    },
+    {
+        name: 'Way Back',
+        path: './Assets/Musics/Way Back.mp3',
+        artist: 'UnKnow',
+        cover: './Assets/Images/cover-1.jpg'
+    },
+    {
+        name: 'Xuân đã đến rồi',
+        path: './Assets/Musics/Xuân đã đến rồi.mp3',
+        artist: 'UnKnow',
+        cover: './Assets/Images/cover-1.jpg'
+    },
+    {
+        name: 'List Bolero 1',
+        path: './Assets/Musics/Những Bản LoFi Thời Bao Cấp Cực Chill Phần 1.mp3',
+        artist: 'UnKnow',
+        cover: './Assets/Images/cover-1.jpg'
+    },
+    {
+        name: 'List Bolero 2',
+        path: './Assets/Musics/Những Bản LoFi Thời Bao Cấp Cực Chill Phần 2.mp3',
+        artist: 'UnKnow',
+        cover: './Assets/Images/cover-1.jpg'
+    }
 ];

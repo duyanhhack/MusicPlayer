@@ -7,7 +7,7 @@ let carouselImageIndex = 0;
 const changeCarousel = () => {
     carousel[carouselImageIndex].classList.toggle('active');
 
-    if(carouselImageIndex >= carousel.length - 1) {
+    if (carouselImageIndex >= carousel.length - 1) {
         carouselImageIndex = 0;
     } else {
         carouselImageIndex++;
@@ -17,9 +17,7 @@ const changeCarousel = () => {
 
 setInterval(() => {
     changeCarousel();
-}, 3000);
-
-// --- Navigations ---
+}, 2000);
 
 // --- toggling music player ---
 const musicPlayerSection = document.querySelector('.music-player-section')
@@ -27,7 +25,7 @@ const musicPlayerSection = document.querySelector('.music-player-section')
 let clickCount = 1;
 
 musicPlayerSection.addEventListener('click', () => {
-    if(clickCount >= 2){
+    if (clickCount >= 2) {
         musicPlayerSection.classList.add('active');
         clickCount = 1;
         return;
@@ -60,6 +58,23 @@ backToMusicPlayer.addEventListener('click', () => {
     playlistSection.classList.remove('active');
 })
 
+//--creat playlist
+
+const queueContainer = document.querySelector('.queue-container')
+
+songs.forEach((song) => {
+    queueContainer.innerHTML +=
+        `
+        <div class="queue">
+            <div class="queue-cover">
+                <img src="${song.cover}" alt="">
+                <i class="fas fa-pause"></i>
+            </div>
+            <p class="name">${song.name}</p>
+        </div>
+        `
+});
+
 //--- musics ---
 let currentMusic = 0;
 const music = document.querySelector('#audio-source');
@@ -74,7 +89,6 @@ const musicDuration = document.querySelector('.duration-time');
 const queue = [...document.querySelectorAll('.queue')];
 
 // select all button
-
 const forwardBtn = document.querySelector('i.fa-forward');
 const backwardBtn = document.querySelector('i.fa-backward');
 const playBtn = document.querySelector('i.fa-play');
@@ -123,12 +137,12 @@ setMusic(0);
 
 const formatTime = (time) => {
     let min = Math.floor(time / 60);
-    if(min < 10){
+    if (min < 10) {
         min = `0` + min;
     }
 
-    let sec = Math.floor(time  % 60);
-    if(sec < 10){
+    let sec = Math.floor(time % 60);
+    if (sec < 10) {
         sec = `0` + sec;
     }
 
@@ -140,11 +154,11 @@ const formatTime = (time) => {
 setInterval(() => {
     seekBar.value = music.currentTime;
     currentMusicTime.innerHTML = formatTime(music.currentTime);
-    if(Math.floor(music.currentTime) == Math.floor(seekBar.max)){
-        if(repeatBtn.className.includes('active')){
+    if (Math.floor(music.currentTime) == Math.floor(seekBar.max)) {
+        if (repeatBtn.className.includes('active')) {
             setMusic(currentMusic);
             playBtn.click();
-        }else {
+        } else {
             forwardBtn.click();
         }
     }
@@ -157,7 +171,7 @@ seekBar.addEventListener('change', () => {
 //--- forward btn
 
 forwardBtn.addEventListener('click', () => {
-    if(currentMusic >= songs.length - 1){
+    if (currentMusic >= songs.length - 1) {
         currentMusic = 0;
     } else {
         currentMusic++;
@@ -169,7 +183,7 @@ forwardBtn.addEventListener('click', () => {
 // backward btn
 
 backwardBtn.addEventListener('click', () => {
-    if(currentMusic <=0){
+    if (currentMusic <= 0) {
         currentMusic = songs.length - 1;
     } else {
         currentMusic--;
@@ -193,6 +207,8 @@ volumeBtn.addEventListener('click', () => {
 volumeSlider.addEventListener('input', () => {
     music.volume = volumeSlider.value;
 })
+
+// select song from playlist
 
 queue.forEach((item, i) => {
     item.addEventListener('click', () => {
